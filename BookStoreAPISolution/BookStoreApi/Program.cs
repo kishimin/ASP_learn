@@ -8,7 +8,7 @@ builder.Services.Configure<BookStoreDatabaseSettings>(builder.Configuration.GetS
 
 builder.Services.AddSingleton<BooksService>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(FileOptions => FileOptions.JsonSerializerOptions.PropertyNamingPolicy = null);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
