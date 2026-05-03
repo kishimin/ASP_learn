@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Transactions;
 using api.Models;
 
 namespace api.Interfaces
@@ -14,7 +15,7 @@ namespace api.Interfaces
 
         Task<Comment> CreateAsync(Comment CommentModel);
 
-        // Task<Comment?> UpdateAsync(int id, UpdateCommentRequestDto CommentDto);
+        Task<Comment?> UpdateAsync(int id, Comment commentModel);
 
         // Task<Comment?> DeleteAsync(int id);
     }

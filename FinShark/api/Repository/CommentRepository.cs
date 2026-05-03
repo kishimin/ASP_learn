@@ -35,26 +35,22 @@ namespace api.Repository
             return commentModel;
         }
 
-        // public async Task<Comment?> UpdateAsync(int id, UpdateCommentRequestDto commentDto)
-        // {
-        //     var existingComment = await _context.Comments.FirstOrDefaultAsync(x => x.Id == id);
+        public async Task<Comment?> UpdateAsync(int id, Comment commentModel)
+        {
+            var existingComment = await _context.Comments.FindAsync(id);
 
-        //     if (existingComment == null)
-        //     {
-        //         return null;
-        //     }
+            if (existingComment == null)
+            {
+                return null;
+            }
 
-        //     existingComment.Symbol = commentDto.Symbol;
-        //     existingComment.CompanyName = commentDto.CompanyName;
-        //     existingComment.Purchase = commentDto.Purchase;
-        //     existingComment.LastDiv = commentDto.LastDiv;
-        //     existingComment.Industry = commentDto.Industry;
-        //     existingComment.MarketCap = commentDto.MarketCap;
+            existingComment.Title = commentModel.Title;
+            existingComment.Content = commentModel.Content;
 
-        //     await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
-        //     return existingComment;
-        // }
+            return existingComment;
+        }
 
         // public async Task<Comment?> DeleteAsync(int id)
         // {
