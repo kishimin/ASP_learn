@@ -70,6 +70,5 @@ namespace api.Repository
 
             return stockModel;
         }
-
     }
 }

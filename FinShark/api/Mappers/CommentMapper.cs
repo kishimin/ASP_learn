@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.Linq;
+using System.Net.Mime;
+using System.Reflection;
+using System.Security.AccessControl;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+using api.Models;
+using api.Dtos.Comment;
+
+namespace api.Mappers
+{
+    public static class CommentMapper
+    {
+        public static CommentDto ToCommentDto(this Comment commentModel)
+        {
+            return new CommentDto
+            {
+                Id = commentModel.Id,
+                Title = commentModel.Title,
+                Content = commentModel.Content,
+                CreatedOn = commentModel.CreatedOn,
+                StockId = commentModel.StockId
+            };
+        }
+    }
+}
