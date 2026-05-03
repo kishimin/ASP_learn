@@ -28,12 +28,12 @@ namespace api.Repository
             return await _context.Comments.FindAsync(id);
         }
 
-        // public async Task<Comment> CreateAsync(Comment commentModel)
-        // {
-        //     await _context.Comments.AddAsync(commentModel);
-        //     await _context.SaveChangesAsync();
-        //     return commentModel;
-        // }
+        public async Task<Comment> CreateAsync(Comment commentModel)
+        {
+            await _context.Comments.AddAsync(commentModel);
+            await _context.SaveChangesAsync();
+            return commentModel;
+        }
 
         // public async Task<Comment?> UpdateAsync(int id, UpdateCommentRequestDto commentDto)
         // {
